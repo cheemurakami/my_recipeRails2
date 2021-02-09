@@ -2,7 +2,7 @@
   <h1>Recipe</h1>
     <ul>
       <% @recipes.each do |recipe| %>
-        <li><%= recipe.title %></li>
+        <li><p><%= recipe.title %> <%= link_to 'Show',recipe_path(recipe) %></p></li>
       <% end%>
     </ul>
 </div>
