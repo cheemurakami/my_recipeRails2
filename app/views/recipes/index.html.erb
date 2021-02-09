@@ -2,7 +2,12 @@
   <h1>Recipes</h1>
     <ul>
       <% @recipes.each do |recipe| %>
-        <li><p><%= recipe.title %> <%= link_to 'Show',recipe_path(recipe) %></p></li>
+        <li>
+          <p>
+            <%= recipe.title %> 
+            <button type="button" class="btn btn-outline-secondary"><%= link_to 'Show',recipe_path(recipe) %></button></p></li>
       <% end%>
     </ul>
+
+    <%= link_to "Create Recipe", new_recipe_path %>
 </div>
