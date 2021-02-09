@@ -1,3 +1,8 @@
 <div class="container">
-  <h1>Hello</h1>
+  <h1>Recipe</h1>
+    <ul>
+      <% @recipes.each do |recipe| %>
+        <li><%= recipe.title %></li>
+      <% end%>
+    </ul>
 </div>
