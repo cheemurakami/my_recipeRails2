@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Recipe</h1>
+  <h1>Recipes</h1>
     <ul>
       <% @recipes.each do |recipe| %>
         <li><p><%= recipe.title %> <%= link_to 'Show',recipe_path(recipe) %></p></li>
