@@ -1,4 +1,9 @@
-<% form_for :ingredients do |f| %>
+<%= form_for [@recipe, @ingredient] do |f| %>
+  <div class="field">
+    <%= f.label :recipe_id %>
+    <%= f.select :recipe_id, Recipe.order(:title).pluck(:title, :id), include_blank: true%>
+  </div>
+  
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
