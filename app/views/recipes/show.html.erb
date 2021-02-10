@@ -1,4 +1,10 @@
 <div class="container">
   <h1>Recipe of <%= @recipe.title %></h1>
   <p><%= @recipe.description %></p>
+  <div>
+     <button type="button" class="btn btn-outline-secondary"><%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %></button>
+  </div>
+  <div>
+    <p><%= link_to 'Back', recipes_path %></p>
+  </div>
 </div>

@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Edit <%= @recipe.title %></h1>
+  <%= render 'form' %>
+  <div>
+    <p><%= link_to 'Back', recipe_path(@recipe) %></p>
+  </div>
+</div>
