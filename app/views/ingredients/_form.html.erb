@@ -1,0 +1,20 @@
+<% form_for :ingredients do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qty %>
+    <%= f.text_field :qty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :uom %>
+    <%= f.text_field :uom %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
