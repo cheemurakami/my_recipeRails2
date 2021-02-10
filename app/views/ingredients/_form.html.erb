@@ -16,10 +16,10 @@
 
   <div class="field">
     <%= f.label :uom %>
-    <%= f.text_field :uom %>
+     <%= f.select :uom, [["cup", "cup"], ["tea spoon", "tea spoon"], ["table spoon", "table spoon"]] %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => "btn btn-outline-secondary submit-btn"%>
   </div>
 <% end %>
