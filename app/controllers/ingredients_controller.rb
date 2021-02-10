@@ -30,6 +30,14 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = Ingredient.find(params[:id])
+    if @ingredient.destroy
+      redirect_to recipe_path(@recipe), notice: 'Recipe was successfully deleted.'
+    end
+  end
+
   private 
     def ingredient_params
       params.require(:ingredient).permit(:name, :qty, :uom, :recipe_id)

@@ -5,7 +5,7 @@
   <% if @recipe.ingredients.any? %>
     <h3>Ingredients</h3>
     <% @recipe.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %> : <%= ingredient.qty %> <%= ingredient.uom %> <%= link_to "[Edit]",  edit_recipe_ingredient_path(@recipe, ingredient) %></p>
+      <p><%= ingredient.name %> : <%= ingredient.qty %> <%= ingredient.uom %> <%= link_to "[Edit]",  edit_recipe_ingredient_path(@recipe, ingredient) %> <%= link_to "[Delete]",  recipe_ingredient_path(@recipe, ingredient), method: :delete, data: { confirm: 'Are you sure?'} %></p>
     <% end %>
     <div>
       <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_ingredient_path(@recipe) %></button>
