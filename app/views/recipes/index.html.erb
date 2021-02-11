@@ -4,12 +4,10 @@
       <% @recipes.each do |recipe| %>
         <li>
           <p>
-            <%= recipe.title %> 
-            <button type="button" class="btn btn-outline-secondary"><%= link_to 'Show',recipe_path(recipe) %></button>
+           <%= link_to recipe.title ,recipe_path(recipe) %>
           </p>
         </li>
       <% end%>
     </ul>
-
     <%= link_to "Create Recipe", new_recipe_path %>
 </div>
