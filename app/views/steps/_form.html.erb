@@ -1,5 +1,10 @@
 <%= form_with(model: @step, url: [@recipe, @step], local: true) do |f| %>
- <div class="field">
+  <div class="field">
+    <%= f.label :recipe_id %>
+    <%= f.select :recipe_id, Recipe.order(:title).pluck(:title, :id) %>
+  </div>
+
+  <div class="field">
     <%= f.label :index %>
     <%= f.text_field :index %>
   </div>
