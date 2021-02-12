@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only:[:show, :edit, :update, :destroy]
 
   def index
+    @three_most_recent = Recipe.three_most_recent
     if (params[:search])
       @recipes = Recipe.search(params[:search])
     else

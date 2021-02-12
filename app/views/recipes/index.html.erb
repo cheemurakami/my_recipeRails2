@@ -18,9 +18,15 @@
     <ul>
       <% @recipes.each do |recipe| %>
         <li>
+        <% if @three_most_recent.include?(recipe) %>
+          <p>
+           <%= link_to recipe.title ,recipe_path(recipe) %> New!!!
+          </p>
+        <% else %>
           <p>
            <%= link_to recipe.title ,recipe_path(recipe) %>
           </p>
+        <% end %>
         </li>
       <% end%>
     </ul>
