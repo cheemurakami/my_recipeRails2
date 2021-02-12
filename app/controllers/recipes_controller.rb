@@ -3,7 +3,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only:[:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.order(:title)
+    if (params[:search])
+      @recipes = Recipe.search(params[:search])
+    else
+      @recipes = Recipe.order(:title)
+    end
   end
 
   def show

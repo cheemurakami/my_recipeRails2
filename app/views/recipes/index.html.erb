@@ -3,9 +3,16 @@
   <div  class="col">
     <h1>Recipes</h1>
   </div>
+
   <div class="col mt-3">
-    <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Recipe", new_recipe_path %></button>
-    
+    <%= form_with url: recipes_path, method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit "Search" %>
+    <% end %>
+  </div>
+  
+  <div class="col mt-3">
+    <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Recipe", new_recipe_path %></button> 
   </div>
 </div>
     <ul>
