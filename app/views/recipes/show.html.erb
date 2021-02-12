@@ -1,6 +1,11 @@
 <div class="container">
   <h1>Recipe of <%= @recipe.title %></h1>
   <p><%= @recipe.description %></p>
+    <% if @recipe.categories.any? %>
+      <% @recipe.categories.each do |category| %>
+      <span class="badge badge-success"><%= category.name %></span>
+      <% end%>
+    <% end %>
 
   <% if @recipe.ingredients.any? %>
   <div>
