@@ -1,0 +1,15 @@
+<%= form_with(model: @step, url: [@recipe, @step], local: true) do |f| %>
+ <div class="field">
+    <%= f.label :index %>
+    <%= f.text_field :index %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

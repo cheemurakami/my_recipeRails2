@@ -15,6 +15,15 @@
     </div>
   <% end%>
   
+  <% if @steps.any? %>
+    <h4>Steps<span><button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_step_path(@recipe) %></button></span></h4>
+    <% @steps.each do |step| %>
+      <p><%= step.index%>: <%= step.description %></p>
+    <% end %>
+  <% else %>
+    <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_step_path(@recipe) %></button>
+  <% end %>
+
   <div>
      <button type="button" class="btn btn-outline-secondary"><%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %></button>
      <button type="button" class="btn btn-outline-secondary"><%= link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?'} %></button>
