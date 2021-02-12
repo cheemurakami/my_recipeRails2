@@ -9,3 +9,7 @@
 5.times do |i|
   Recipe.create(title: "recipe #{i}", description: "description #{i}")
 end
+
+5.times do |i|
+  Category.create(name: "category #{i}")
+end
