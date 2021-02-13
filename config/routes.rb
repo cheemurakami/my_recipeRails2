@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :steps
   end
+  resources :categories do
+    resources :recipes
+  end
   root 'recipes#index'
 end
