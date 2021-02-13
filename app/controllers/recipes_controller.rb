@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
     @three_most_recent = Recipe.three_most_recent
     if (params[:search])
       @recipes = Recipe.search(params[:search])
+    elsif(params[:category_id])
+      @category = Category.find(params[:category_id])
+      @recipes = @category.recipes
     else
       @recipes = Recipe.order(:title)
     end

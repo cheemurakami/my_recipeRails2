@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :steps
   end
   resources :categories do
-    resources :recipes
+    resources :recipes, only: :index
   end
   root 'recipes#index'
 end
