@@ -1,18 +1,20 @@
 <div class="container">
 <div class="row">
-  <div  class="col">
+  <div  class="col-3">
     <h1>Recipes</h1>
   </div>
 
-  <div class="col mt-3">
+  <div class="col-3 mt-3">
     <%= form_with url: recipes_path, method: :get, local: true do |f| %>
-      <%= f.text_field :search %>
-      <%= f.submit "Search" %>
+      <%= f.text_field :search, :class => "search_field" %>
+      <%= f.submit "Search", :class => "btn btn-outline-secondary" %>
     <% end %>
   </div>
   
-  <div class="col mt-3">
+  <div class="col-5 mt-3">
+    <button type="button" class="btn btn-outline-secondary"><%= link_to "See Categories", new_recipe_path %></button> 
     <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Recipe", new_recipe_path %></button> 
+    <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Categories", new_recipe_path %></button> 
   </div>
 </div>
     <ul>

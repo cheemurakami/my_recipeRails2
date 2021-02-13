@@ -10,9 +10,7 @@ a {
 .btn:hover {
   background-color: #FFEBF1;
 }
-.submit-btn:hover {
-  color: #666666;
-}
+
 body {
   background-image: url("https://www.heart.org/-/media/aha/h4gm/article-images/fruit-and-vegetables.jpg?la=en&hash=65387BD7AEEF9C37F30838E6A897796400EE80F4");
   background-repeat: no-repeat;
@@ -47,3 +45,7 @@ a:link {
   font-size: 12px;
   list-style: square; }
 
+.search_field{
+  height: 35px;
+  width: 150px;
+}
