@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
       @recipes = @category.recipes
     else
       @recipes = Recipe.order(:title)
+      @categories = Category.includes(:recipes)
     end
   end
 
