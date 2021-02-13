@@ -2,6 +2,9 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <% if @category.errors.messages[:name].any? %>
+      <span class='error'><%= @category.errors.messages[:name][0]%></span>
+    <% end%>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-outline-secondary" %>
