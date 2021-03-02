@@ -3,35 +3,38 @@
     <div  class="col-3">
       <h1>Recipes</h1>
     </div>
-
     <div class="col-3 mt-3">
       <%= form_with url: recipes_path, method: :get, local: true do |f| %>
         <%= f.text_field :search, :class => "search_field" %>
         <%= f.submit "Search", :class => "btn btn-outline-secondary" %>
       <% end %>
     </div>
-    
     <div class="col-5 mt-3">
-      <button type="button" class="btn btn-outline-secondary"><%= link_to "See Categories", categories_path %></button> 
-      <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Recipe", new_recipe_path %></button> 
-      <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Category", new_category_path %></button> 
+      <div class="row mb-2">
+        <button type="button" class="btn btn-outline-secondary"><%= link_to "See Categories", categories_path %></button>
+      </div>
+      <div class="row mb-2">
+        <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Recipe", new_recipe_path %></button>
+      </div>
+      <div class="row mb-2">
+        <button type="button" class="btn btn-outline-secondary"><%= link_to "Create Category", new_category_path %></button>
+      </div>
     </div>
   </div>
-
-  <div class="row">
+  <div class="row mt-5">
     <div class="col">
       <ul>
         <% @recipes.each do |recipe| %>
           <li>
-          <% if @three_most_recent.include?(recipe) %>
-            <p>
-            <%= link_to recipe.title ,recipe_path(recipe) %> New!!!
-            </p>
-          <% else %>
-            <p>
-            <%= link_to recipe.title ,recipe_path(recipe) %>
-            </p>
-          <% end %>
+            <% if @three_most_recent.include?(recipe) %>
+              <p>
+                <%= link_to recipe.title ,recipe_path(recipe) %> New!!!
+              </p>
+            <% else %>
+              <p>
+                <%= link_to recipe.title ,recipe_path(recipe) %>
+              </p>
+            <% end %>
           </li>
         <% end%>
       </ul>
@@ -41,7 +44,7 @@
     </div>
     <% if @categories %>
       <div class="col">
-      <h2>Search by categories</h2>
+        <h2>Search by categories</h2>
         <ul>
           <% @categories.each do |category| %>
             <li>
