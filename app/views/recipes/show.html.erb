@@ -2,42 +2,47 @@
   <div class="row">
     <div class="col">
       <h1>Recipe of <%= @recipe.title %></h1>
-        <p><%= @recipe.description %></p>
-        <% if @recipe.categories.any? %>
-          <% @recipe.categories.each do |category| %>
+      <p><%= @recipe.description %></p>
+      <% if @recipe.categories.any? %>
+        <% @recipe.categories.each do |category| %>
           <span class="badge badge-success"><%= category.name %></span>
-          <% end%>
-        <% end %>
+        <% end%>
+      <% end %>
     </div>
     <div class="col mt-3">
       <button type="button" class="btn btn-outline-secondary"><%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %></button>
       <button type="button" class="btn btn-outline-secondary"><%= link_to 'Delete this recipe', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?'} %></button>
     </div>
   </div>
-
-  <% if @recipe.ingredients.any? %>
-  <div>
-    <h4>Ingredients<span><button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_ingredient_path(@recipe) %></button></span></h4>
-  </div>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %> : <%= ingredient.qty %> <%= ingredient.uom %> <%= link_to "[Edit]",  edit_recipe_ingredient_path(@recipe, ingredient) %> <%= link_to "[Delete]",  recipe_ingredient_path(@recipe, ingredient), method: :delete, data: { confirm: 'Are you sure?'} %></p>
-    <% end %>
-  <% else %>
-    <div>
-      <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add Ingredients', new_recipe_ingredient_path(@recipe) %></button>
+  <div class="row">
+    <div class="col">
+      <% if @recipe.ingredients.any? %>
+        <div>
+          <h4>Ingredients</h4>
+        </div>
+        <% @recipe.ingredients.each do |ingredient| %>
+          <p><%= ingredient.name %> : <%= ingredient.qty %> <%= ingredient.uom %> <%= link_to "[Edit]",  edit_recipe_ingredient_path(@recipe, ingredient) %> <%= link_to "[Delete]",  recipe_ingredient_path(@recipe, ingredient), method: :delete, data: { confirm: 'Are you sure?'} %></p>
+        <% end %>
+        <span><button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_ingredient_path(@recipe) %></button></span>
+      <% else %>
+        <div>
+          <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add Ingredients', new_recipe_ingredient_path(@recipe) %></button>
+        </div>
+      <% end%>
     </div>
-  <% end%>
-  
-  <% if @steps.any? %>
-    <h4>Steps<span><button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Steps', new_recipe_step_path(@recipe) %></button></span></h4>
-    <% @steps.each do |step| %>
-      <p><%= step.index%>: <%= step.description %><%= link_to "[Edit]", edit_recipe_step_path(@recipe, step) %><%= link_to "[Delete]", recipe_step_path(@recipe, step), method: :delete, data: {confirm: "Are you sure?"} %></p>
-    <% end %>
-  <% else %>
-    <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Ingredients', new_recipe_step_path(@recipe) %></button>
-  <% end %>
-
-  <div>
+    <div class="col">
+      <% if @steps.any? %>
+        <h4>Steps</h4>
+        <% @steps.each do |step| %>
+          <p><%= step.index%>: <%= step.description %><%= link_to "[Edit]", edit_recipe_step_path(@recipe, step) %><%= link_to "[Delete]", recipe_step_path(@recipe, step), method: :delete, data: {confirm: "Are you sure?"} %></p>
+        <% end %>
+        <span><button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more Steps', new_recipe_step_path(@recipe) %></button></span>
+      <% else %>
+        <button type="button" class="btn btn-outline-secondary"><%= link_to 'Add more steps', new_recipe_step_path(@recipe) %></button>
+      <% end %>
+    </div>
+  </div>
+  <div class="mt-5 mb-5">
     <button type="button" class="btn btn-outline-secondary"><%= link_to 'Back', recipes_path %></button>
   </div>
 </div>
