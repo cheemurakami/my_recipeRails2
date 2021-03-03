@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only:[:show, :edit, :update, :destroy]
 
   def index
+    
     @three_most_recent = Recipe.three_most_recent
     if (params[:search])
       @recipes = Recipe.search(params[:search])
@@ -10,8 +11,12 @@ class RecipesController < ApplicationController
       @category = Category.find(params[:category_id])
       @recipes = @category.recipes
     else
-      @recipes = Recipe.order(:title)
-      @categories = Category.includes(:recipes)
+      if (params[:sort] == "newest")
+        @recipes = Recipe.all.order(created_at: "desc")
+        @categories = Category.includes(:recipes)
+      else
+        @recipes = Recipe.order(:title)
+      end
     end
   end
 
